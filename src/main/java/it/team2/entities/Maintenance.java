@@ -12,17 +12,17 @@ public class Maintenance {
     private Long id;
     private Date startDate;
     private Date endDate;
-    private Veicolo veicolo;
+    private Vehicle vehicle;
 
-    public Maintenance(Date startDate, Veicolo veicolo) {
+    public Maintenance(Date startDate, Vehicle veicolo) {
         this.startDate = startDate;
-        this.veicolo = veicolo;
+        this.vehicle = veicolo;
     }
 
-    public Maintenance(Date startDate, Date endDate, Veicolo veicolo) {
+    public Maintenance(Date startDate, Date endDate, Vehicle veicolo) {
         this.startDate = startDate;
         this.endDate = endDate;
-        this.veicolo = veicolo;
+        this.vehicle = veicolo;
     }
 
     // Getters and setters

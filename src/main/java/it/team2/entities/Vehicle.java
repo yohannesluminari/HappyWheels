@@ -25,7 +25,7 @@ public class Vehicle extends BaseEntity {
     }
 
     public void completeMaintenance(Maintenance maintenance) {
-        maintenance.setEndDate(new Date());
+        maintenances.setEndDate(new Date());
         state = State.IN_SERVICE;
     }
 }
