@@ -13,14 +13,16 @@ public class Subscription extends TravelTicket{
     private SubscriptionType subscriptionType;
     private LocalDate purchaseDate;
     private LocalDate expiryDate;
+    private CardSubscription cardSubscription;
 
     public Subscription() {
     }
 
-    public Subscription(SubscriptionType subscriptionType) {
+    public Subscription(SubscriptionType subscriptionType )  {//CardSubscription cardSubscription
         LocalDate now = LocalDate.now();
         this.subscriptionType = subscriptionType;
         this.purchaseDate = now;
+        //this.cardSubscription = cardSubscription;
 
         if (this.subscriptionType == SubscriptionType.WEEKLY){
             this.expiryDate = this.purchaseDate.plusDays(7);
@@ -53,12 +55,21 @@ public class Subscription extends TravelTicket{
         this.expiryDate = expiryDate;
     }
 
+    public CardSubscription getCardSubscription() {
+        return cardSubscription;
+    }
+
+    public void setCardSubscription(CardSubscription cardSubscription) {
+        this.cardSubscription = cardSubscription;
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", Subscription.class.getSimpleName() + "[", "]")
                 .add("subscriptionType=" + subscriptionType)
                 .add("purchaseDate=" + purchaseDate)
                 .add("expiryDate=" + expiryDate)
+                .add("cardSubscription=" + cardSubscription)
                 .toString();
     }
 }
