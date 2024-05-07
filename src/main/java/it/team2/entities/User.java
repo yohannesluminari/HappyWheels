@@ -52,6 +52,7 @@ public class User extends BaseEntity{
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
-
+// dobbiamo inserire una classe tessera sempre per tutti gli user e dobbiamo aggiungere la posssibilità di riattivarala
+    //diosuino
 
 }
