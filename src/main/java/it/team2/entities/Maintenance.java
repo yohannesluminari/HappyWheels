@@ -8,15 +8,12 @@ package it.team2.entities;
 
 import java.util.Date;
 
-public class Maintenance {
-    private Long id;
+public class Maintenance extends BaseEntity{
     private Date startDate;
     private Date endDate;
     private Vehicle vehicle;
 
-    public Maintenance(Date startDate, Vehicle veicolo) {
-        this.startDate = startDate;
-        this.vehicle = veicolo;
+    public Maintenance() {
     }
 
     public Maintenance(Date startDate, Date endDate, Vehicle veicolo) {
@@ -24,8 +21,6 @@ public class Maintenance {
         this.endDate = endDate;
         this.vehicle = veicolo;
     }
-
-    // Getters and setters
 }
 
 

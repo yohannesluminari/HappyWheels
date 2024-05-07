@@ -1,15 +1,25 @@
 package it.team2.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+
 import java.time.LocalDate;
 import java.util.Date;
 
+@Embeddable
 public class CardSubscription extends BaseEntity {
-    private long codeCard;
-    private LocalDate erogationDate;
-    private LocalDate expirationDate;
-    private Subscription subscription;
-    private User user;
 
+    @Column(name = "codeCard", length  = 80)
+    private long codeCard;
+
+    @Column(name = "erogationDate", length  = 80)
+    private LocalDate erogationDate;
+
+    @Column(name = "expirationDate", length  = 80)
+    private LocalDate expirationDate;
+
+    @Column(name = "subscription", length  = 80)
+    private Subscription subscription;
 
     @Override
     public String toString() {
@@ -18,15 +28,14 @@ public class CardSubscription extends BaseEntity {
                 ", erogationDate=" + erogationDate +
                 ", expirationDate=" + expirationDate +
                 ", subscription=" + subscription +
-                ", user=" + user +
                 '}';
     }
 
-    public CardSubscription(User user, Subscription subscription, LocalDate expirationDate, LocalDate erogationDate, long codeCard) {
-        this.user = user;
+    public CardSubscription(Subscription subscription,long codeCard) {
+        LocalDate now = LocalDate.now();
         this.subscription = subscription;
-        this.expirationDate = expirationDate;
-        this.erogationDate = erogationDate;
+        this.erogationDate = now;
+        this.expirationDate = now.plusYears(1);
         this.codeCard = codeCard;
     }
 
@@ -67,11 +76,4 @@ public class CardSubscription extends BaseEntity {
         this.subscription = subscription;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

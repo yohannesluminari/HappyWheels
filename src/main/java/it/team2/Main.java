@@ -12,10 +12,12 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        var antonio = new User("Antonio", "Schipani", LocalDate.of(1998,3,7));
+        var antonio = new User("Antonio", "Schipani", LocalDate.of(1998,3,7), new CardSubscription(new Subscription(SubscriptionType.WEEKLY),12345));
         var abbM = new Subscription(SubscriptionType.MONTHLY);
         var abbS = new Subscription(SubscriptionType.WEEKLY);
         var ticket1 = new Ticket(true);
+
+
 
 
         log.debug("{}", ticket1);
