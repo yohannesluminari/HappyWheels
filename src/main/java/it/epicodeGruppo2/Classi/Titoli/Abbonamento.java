@@ -1,10 +1,12 @@
-package it.epicodeGruppo2;
+package it.epicodeGruppo2.Classi.Titoli;
+
+import it.epicodeGruppo2.Classi.User;
 
 import java.util.Date;
 
-public class Abbonamento {
+public class Abbonamento extends TitoloDiViaggio{
     private Long idAbbonamento;
-    private Date dataInizio;
+    private Date dataInizio = new Date();
     private boolean validità;
     private User user;
     private AbbonamentoEnum abbonamento;
@@ -18,6 +20,10 @@ public class Abbonamento {
                 ", user=" + user +
                 ", abbonamento=" + abbonamento +
                 '}';
+    }
+
+    public Abbonamento(){
+
     }
 
     public Abbonamento(Long idAbbonamento, Date dataInizio, boolean validità, User user, AbbonamentoEnum abbonamento) {

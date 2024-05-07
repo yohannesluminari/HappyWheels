@@ -1,8 +1,10 @@
-package it.epicodeGruppo2;
+package it.epicodeGruppo2.Classi.MezziDiTrasporto;
+
+import it.epicodeGruppo2.Classi.BaseEntity;
 
 import java.util.Date;
 
-public class StatoMezzi {
+public class StatoMezzi extends BaseEntity {
     private StatoMezziEnum stato;
     private Date dataInizio;
     private Date dataFine;

@@ -1,7 +1,4 @@
-import it.epicodeGruppo2.Abbonamento;
-import it.epicodeGruppo2.AbbonamentoEnum;
-import it.epicodeGruppo2.Tessera;
-import it.epicodeGruppo2.User;
+import it.epicodeGruppo2.Classi.User;
 
 import java.util.Date;
 

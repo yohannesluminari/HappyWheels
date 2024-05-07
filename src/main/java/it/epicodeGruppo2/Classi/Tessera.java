@@ -1,8 +1,10 @@
-package it.epicodeGruppo2;
+package it.epicodeGruppo2.Classi;
+
+import it.epicodeGruppo2.Classi.Titoli.Abbonamento;
 
 import java.util.Date;
 
-public class Tessera {
+public class Tessera extends BaseEntity{
     private Long codiceTessera;
     private Date dataErogazione;
     private Date dataScadenza;

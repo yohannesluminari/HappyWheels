@@ -1,6 +1,8 @@
-package it.epicodeGruppo2;
+package it.epicodeGruppo2.Classi.MezziDiTrasporto;
 
-public class MezziDiTrasporto {
+import it.epicodeGruppo2.Classi.BaseEntity;
+
+public class MezziDiTrasporto extends BaseEntity {
     private String targa;
     private StatoMezzi stato;
     private Tratta trattaAssegnata;

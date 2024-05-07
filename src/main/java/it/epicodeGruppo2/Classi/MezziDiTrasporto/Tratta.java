@@ -1,6 +1,8 @@
-package it.epicodeGruppo2;
+package it.epicodeGruppo2.Classi.MezziDiTrasporto;
 
-public class Tratta {
+import it.epicodeGruppo2.Classi.BaseEntity;
+
+public class Tratta extends BaseEntity {
     private String zonaPartenza;
     private String capolinea;
     private int numeroPercorsoPercorsi;

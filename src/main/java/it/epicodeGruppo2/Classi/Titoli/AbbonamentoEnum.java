@@ -1,4 +1,4 @@
-package it.epicodeGruppo2;
+package it.epicodeGruppo2.Classi.Titoli;
 
 public enum AbbonamentoEnum {
     SETTIMANALE,

@@ -1,8 +1,8 @@
-package it.epicodeGruppo2;
+package it.epicodeGruppo2.Classi;
 
 import java.util.Date;
 
-public class User {
+public class User extends BaseEntity {
     private Long idUser;
     private String nome;
     private String cognome;
