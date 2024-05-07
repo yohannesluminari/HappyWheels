@@ -1,13 +1,12 @@
 package it.team2.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
 
 @Embeddable
-public class CardSubscription extends BaseEntity {
+public class CardSubscription {
 
     @Column(name = "codeCard", length  = 80)
     private long codeCard;
@@ -18,7 +17,7 @@ public class CardSubscription extends BaseEntity {
     @Column(name = "expirationDate", length  = 80)
     private LocalDate expirationDate;
 
-    @Column(name = "subscription", length  = 80)
+    @OneToOne(optional = true, cascade = CascadeType.PERSIST)
     private Subscription subscription;
 
     @Override

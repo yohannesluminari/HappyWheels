@@ -14,7 +14,7 @@ public class JpaUserDao extends JpaBaseDao implements UserDao{
            em.persist(user);
            t.commit();
         }catch (Exception ex){
-            log.error("Ciuaone mona" + ex.getMessage());
+            log.error("Ciuaone mona" , ex);
         }
     }
 
