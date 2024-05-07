@@ -1,12 +1,10 @@
 package it.team2.dao;
 
 import it.team2.entities.User;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityTransaction;
 
 import java.util.Optional;
 
-public class UserJpaBaseDao extends JpaBaseDao implements UserDao{
+public class JpaUserDao extends JpaBaseDao implements UserDao{
     @Override
     public void saveUser(User user) {
 

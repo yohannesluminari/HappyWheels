@@ -9,7 +9,7 @@ public class JpaBaseDao {
     protected static final Logger log = LoggerFactory.getLogger(JpaBaseDao.class);
 
     protected final EntityManager em = Persistence
-            .createEntityManagerFactory("library")
+            .createEntityManagerFactory("HotWheels")
             .createEntityManager();
 
 }

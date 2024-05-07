@@ -31,12 +31,17 @@ public class CardSubscription extends BaseEntity {
                 '}';
     }
 
-    public CardSubscription(Subscription subscription,long codeCard) {
+    public CardSubscription(long codeCard, SubscriptionType subscriptionType) {
         LocalDate now = LocalDate.now();
-        this.subscription = subscription;
+
         this.erogationDate = now;
         this.expirationDate = now.plusYears(1);
         this.codeCard = codeCard;
+        if (subscriptionType == SubscriptionType.WEEKLY){
+            this.subscription = new Subscription(SubscriptionType.WEEKLY);
+        }else if(subscriptionType == SubscriptionType.MONTHLY) {
+            this.subscription = new Subscription(SubscriptionType.MONTHLY);
+        }
     }
 
     public CardSubscription(){
