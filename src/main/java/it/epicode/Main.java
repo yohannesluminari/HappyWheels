@@ -1,5 +1,7 @@
 package it.epicode;
 
+import it.epicode.Enum.SubscriptionType;
+import it.epicode.classi.Subscription;
 import it.epicode.classi.User;
 import it.epicode.dao.jpa.JpaUserDao;
 import org.slf4j.Logger;
@@ -14,5 +16,7 @@ public class Main {
         User Antonio = new User("Antonio","Schipani", LocalDate.of(1998,3,7));
         var userDao = new JpaUserDao();
         userDao.save(Antonio);
+        Subscription abb1 = new Subscription(SubscriptionType.WEEKLY);
+        log.debug("{}", abb1);
     }
 }
