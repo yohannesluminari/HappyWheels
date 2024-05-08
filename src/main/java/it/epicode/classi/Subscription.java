@@ -3,11 +3,12 @@ package it.epicode.classi;
 import it.epicode.Enum.SubscriptionType;
 
 import java.time.LocalDate;
+import java.util.StringJoiner;
+
 public class Subscription extends TravelDocument {
     private SubscriptionType subscriptionType;
 
     public Subscription(SubscriptionType subscriptionType) {
-        super();
         this.subscriptionType = subscriptionType;
         if(this.subscriptionType == SubscriptionType.WEEKLY){
             setEndDate(getStartDate().plusWeeks(1));
@@ -16,13 +17,21 @@ public class Subscription extends TravelDocument {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Subscription{" +
-                "subscriptionType=" + subscriptionType +
-                '}';
+    public SubscriptionType getSubscriptionType() {
+        return subscriptionType;
     }
 
+    public void setSubscriptionType(SubscriptionType subscriptionType) {
+        this.subscriptionType = subscriptionType;
+    }
 
-
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Subscription.class.getSimpleName() + "[", "]")
+                .add("subscriptionType=" + subscriptionType)
+                .add("code=" + code)
+                .add("startDate=" + startDate)
+                .add("endDate=" + endDate)
+                .toString();
+    }
 }

@@ -6,24 +6,14 @@ import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 @Entity
-public class TravelDocument extends BaseEntity {
+public abstract class TravelDocument extends BaseEntity {
     @Id
-    @GeneratedValue
-    private long code;
-    private LocalDate startDate;
-    private LocalDate endDate;
+     long code;
+     LocalDate startDate;
+     LocalDate endDate;
 
     public TravelDocument() {
-
-    }
-
-    @Override
-    public String toString() {
-        return "TravelDocument{" +
-                "code=" + code +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                '}';
+        this.startDate = LocalDate.now();
     }
 
     public long getCode() {
