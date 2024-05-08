@@ -1,10 +1,11 @@
 package it.epicode.classi;
 
 import it.epicode.Enum.SubscriptionType;
+import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 import java.util.StringJoiner;
-
+@Entity
 public class Subscription extends TravelDocument {
     private SubscriptionType subscriptionType;
 

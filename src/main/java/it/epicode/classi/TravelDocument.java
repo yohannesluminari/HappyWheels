@@ -1,19 +1,23 @@
 package it.epicode.classi;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 
 import java.time.LocalDate;
+
+
 @Entity
 public abstract class TravelDocument extends BaseEntity {
-    @Id
-     long code;
-     LocalDate startDate;
-     LocalDate endDate;
+    @Column(name = "code", length = 50)
+    long code;
+    @Column(name = "start_date")
+    LocalDate startDate;
+    @Column(name = "end_date")
+    LocalDate endDate;
 
     public TravelDocument() {
         this.startDate = LocalDate.now();
+
     }
 
     public long getCode() {
