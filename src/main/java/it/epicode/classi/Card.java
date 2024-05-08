@@ -16,11 +16,12 @@ public class Card extends BaseEntity {
     @Column(name = "expiration_Date")
     private LocalDate expirationDate;
 
-    public Card(User user) {
+    public Card( User user, LocalDate date) {
         this.user = user;
-        this.activationDate = LocalDate.now();
+        this.activationDate = date;
         this.expirationDate = activationDate.plusYears(1);
     }
+
     public Card(){
 
     }

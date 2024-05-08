@@ -16,7 +16,8 @@ public class User extends BaseEntity {
     private LocalDate birthDate;
 
     public User( String name, String lastName, LocalDate birthDate) {
-        this.card = new Card();
+        this.card = new Card(this, LocalDate.now());
+        this.card.setUser(this);
         this.name = name;
         this.lastName = lastName;
         this.birthDate = birthDate;

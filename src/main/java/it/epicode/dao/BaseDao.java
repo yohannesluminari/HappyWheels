@@ -9,6 +9,6 @@ public class BaseDao {
     protected static final Logger log = LoggerFactory.getLogger(BaseDao.class);
 
     protected final EntityManager em = Persistence
-            .createEntityManagerFactory("Transport")
+            .createEntityManagerFactory("HotWheels")
             .createEntityManager();
 }
