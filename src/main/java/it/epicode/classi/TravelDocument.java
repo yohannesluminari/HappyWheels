@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 
 
 import java.time.LocalDate;
+import java.util.Random;
 
 
 @Entity
 public abstract class TravelDocument extends BaseEntity {
     @Column(name = "code", length = 50)
-    long code;
+    double code;
     @Column(name = "start_date")
     LocalDate startDate;
     @Column(name = "end_date")
@@ -17,14 +18,14 @@ public abstract class TravelDocument extends BaseEntity {
 
     public TravelDocument() {
         this.startDate = LocalDate.now();
-
+        this.code = (int)(Math.random()*1000);
     }
 
-    public long getCode() {
+    public double getCode() {
         return code;
     }
 
-    public void setCode(long code) {
+    public void setCode(double code) {
         this.code = code;
     }
 
