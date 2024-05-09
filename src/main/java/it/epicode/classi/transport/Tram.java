@@ -1,11 +1,10 @@
-package it.epicode.classi;
+package it.epicode.classi.transport;
 
 import jakarta.persistence.Entity;
 
-import java.sql.Time;
 import java.time.LocalTime;
 @Entity
-public class Tram extends Vehicle{
+public class Tram extends Vehicle {
     public Tram(String licensePlate, String departure, String arrive, LocalTime trackDuration, int counterTrack) {
         super(licensePlate, departure, arrive, trackDuration, counterTrack);
         super.setCapacity(80);
@@ -16,6 +15,11 @@ public class Tram extends Vehicle{
         LocalTime totalTime = LocalTime.ofSecondOfDay(totalMillis / 1000);
         super.setTotalTime(totalTime);
     }
+    public Tram(){
 
+    }
 }
+
+
+
 

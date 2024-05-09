@@ -1,11 +1,10 @@
-package it.epicode.classi;
+package it.epicode.classi.transport;
 
 
+import it.epicode.classi.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
-import java.sql.Time;
-import java.time.LocalDate;
 import java.time.LocalTime;
 @Entity
 public abstract class Vehicle extends BaseEntity {
@@ -30,6 +29,9 @@ public abstract class Vehicle extends BaseEntity {
         this.arrive = arrive;
         this.trackDuration = trackDuration;
         this.counterTrack = counterTrack;
+
+    }
+    public Vehicle(){
 
     }
 

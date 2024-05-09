@@ -1,5 +1,6 @@
-package it.epicode.classi;
+package it.epicode.classi.purchase;
 
+import it.epicode.classi.BaseEntity;
 import jakarta.persistence.*;
 
 @Entity

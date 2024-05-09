@@ -1,6 +1,6 @@
 package it.epicode.dao.jpa;
 
-import it.epicode.classi.Maintenance;
+import it.epicode.classi.transport.Maintenance;
 import it.epicode.dao.BaseDao;
 import it.epicode.dao.interfaces.MaintenanceDao;
 

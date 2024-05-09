@@ -1,10 +1,8 @@
 package it.epicode.dao.jpa;
 
-import it.epicode.classi.Card;
-import it.epicode.classi.Vehicle;
+import it.epicode.classi.transport.Vehicle;
 import it.epicode.dao.BaseDao;
 import it.epicode.dao.interfaces.VehicleDao;
-import org.hibernate.jdbc.Expectation;
 
 public class JpaVehicleDao extends BaseDao implements VehicleDao {
 

@@ -1,7 +1,7 @@
 package it.epicode.dao.jpa;
 
-import it.epicode.classi.Card;
-import it.epicode.classi.User;
+import it.epicode.classi.personal.Card;
+import it.epicode.classi.personal.User;
 import it.epicode.dao.BaseDao;
 import it.epicode.dao.interfaces.UserDao;
 

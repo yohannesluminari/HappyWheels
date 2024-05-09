@@ -1,11 +1,10 @@
-package it.epicode.classi;
+package it.epicode.classi.transport;
 
 import jakarta.persistence.Entity;
 
-import java.sql.Time;
 import java.time.LocalTime;
 @Entity
-public class Bus extends Vehicle{
+public class Bus extends Vehicle {
     public Bus(String licensePlate, String departure, String arrive, LocalTime trackDuration, int counterTrack) {
         super(licensePlate, departure, arrive, trackDuration, counterTrack);
         super.setCapacity(50);
@@ -15,5 +14,8 @@ public class Bus extends Vehicle{
         long totalMillis = getTrackDuration().toSecondOfDay() * getCounterTrack() * 1000L;
         LocalTime totalTime = LocalTime.ofSecondOfDay(totalMillis / 1000);
         super.setTotalTime(totalTime);
+    }
+    public Bus (){
+
     }
 }

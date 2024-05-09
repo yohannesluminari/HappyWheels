@@ -1,6 +1,7 @@
-package it.epicode.classi;
+package it.epicode.classi.transport;
 
 
+import it.epicode.classi.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;

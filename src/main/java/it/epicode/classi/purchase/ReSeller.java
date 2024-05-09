@@ -1,4 +1,4 @@
-package it.epicode.classi;
+package it.epicode.classi.purchase;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("R")
-public class ReSeller extends Seller{
+public class ReSeller extends Seller {
     @Column(name = "name", length = 50, nullable = false)
     private String name;
 

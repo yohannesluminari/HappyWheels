@@ -1,6 +1,6 @@
 package it.epicode.dao.interfaces;
 
-import it.epicode.classi.Card;
+import it.epicode.classi.personal.Card;
 
 public interface CardDao {
     void save(Card card);

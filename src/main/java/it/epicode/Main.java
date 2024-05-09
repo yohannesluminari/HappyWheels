@@ -1,7 +1,11 @@
 package it.epicode;
 
 import it.epicode.Enum.SubscriptionType;
-import it.epicode.classi.*;
+import it.epicode.classi.personal.Subscription;
+import it.epicode.classi.personal.User;
+import it.epicode.classi.transport.Bus;
+import it.epicode.classi.transport.Maintenance;
+import it.epicode.classi.transport.Tram;
 import it.epicode.dao.jpa.JpaMaintenanceDao;
 import it.epicode.dao.jpa.JpaTravelDocumentDao;
 import it.epicode.dao.jpa.JpaUserDao;
@@ -33,7 +37,7 @@ public class Main {
         log.debug("{}",bus);
         vehicleDao.save(tram1);
         vehicleDao.save(bus);
-        var maintenence1 = new Maintenance (vehicleDao.getVehicleById(1L),LocalDate.now());
+        var maintenence1 = new Maintenance(vehicleDao.getVehicleById(1L),LocalDate.now());
         var maintenanceDao = new JpaMaintenanceDao();
         maintenanceDao.save(maintenence1);
     }

@@ -1,6 +1,6 @@
 package it.epicode.dao.jpa;
 
-import it.epicode.classi.TravelDocument;
+import it.epicode.classi.personal.TravelDocument;
 import it.epicode.dao.BaseDao;
 import it.epicode.dao.interfaces.TravelDocumentDao;
 

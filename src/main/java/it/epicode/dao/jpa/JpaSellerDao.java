@@ -1,6 +1,6 @@
 package it.epicode.dao.jpa;
 
-import it.epicode.classi.Seller;
+import it.epicode.classi.purchase.Seller;
 import it.epicode.dao.BaseDao;
 import it.epicode.dao.interfaces.SellerDao;
 
