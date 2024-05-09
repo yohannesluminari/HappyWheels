@@ -21,6 +21,8 @@ public abstract class Vehicle extends BaseEntity {
     private int counterTrack;
     @Column(name="capacity", nullable = false)
     private int capacity;
+    @Column(name = "total_time", nullable = false)
+    private LocalTime totalTime;
 
     public Vehicle(String licensePlate, String departure, String arrive, LocalTime trackDuration, int counterTrack) {
         this.licensePlate = licensePlate;
@@ -89,5 +91,13 @@ public abstract class Vehicle extends BaseEntity {
 
     public void setCounterTrack(int counterTrack) {
         this.counterTrack = counterTrack;
+    }
+
+    public LocalTime getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(LocalTime totalTime) {
+        this.totalTime = totalTime;
     }
 }
