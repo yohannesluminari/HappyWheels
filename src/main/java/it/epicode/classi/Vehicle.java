@@ -1,16 +1,26 @@
 package it.epicode.classi;
 
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
+@Entity
 public abstract class Vehicle extends BaseEntity {
+    @Column(name="license_plate", length = 7, nullable = false )
     private String licensePlate;
+    @Column(name="departure", length = 50, nullable = false )
     private String departure;
+    @Column(name="arrive", length = 50, nullable = false )
     private String arrive;
+    @Column(name= "route_duration", nullable = false)
     private LocalTime trackDuration;
+    @Column(name= "counter_track", nullable = false)
     private int counterTrack;
+    @Column(name="capacity", nullable = false)
+    private int capacity;
 
     public Vehicle(String licensePlate, String departure, String arrive, LocalTime trackDuration, int counterTrack) {
         this.licensePlate = licensePlate;
@@ -18,17 +28,27 @@ public abstract class Vehicle extends BaseEntity {
         this.arrive = arrive;
         this.trackDuration = trackDuration;
         this.counterTrack = counterTrack;
+
     }
 
     @Override
     public String toString() {
         return "Vehicle{" +
-                "licensePlate='" + licensePlate + '\'' +
-                ", departure='" + departure + '\'' +
-                ", arrive='" + arrive + '\'' +
-                ", trackDuration=" + trackDuration +
+                "capacity=" + capacity +
                 ", counterTrack=" + counterTrack +
+                ", trackDuration=" + trackDuration +
+                ", arrive='" + arrive + '\'' +
+                ", departure='" + departure + '\'' +
+                ", licensePlate='" + licensePlate + '\'' +
                 '}';
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public String getLicensePlate() {
