@@ -1,10 +1,11 @@
 package it.epicode.classi;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
-
 import java.time.LocalDate;
+
 
 @Entity
 public class Maintenance extends BaseEntity {

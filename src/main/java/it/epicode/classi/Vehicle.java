@@ -1,10 +1,12 @@
 package it.epicode.classi;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
+import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalTime;
-
 @Entity
 public abstract class Vehicle extends BaseEntity {
     @Column(name="license_plate", length = 7, nullable = false )

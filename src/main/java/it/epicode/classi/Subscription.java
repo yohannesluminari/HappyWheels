@@ -1,12 +1,18 @@
 package it.epicode.classi;
 
 import it.epicode.Enum.SubscriptionType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.time.LocalDate;
 import java.util.StringJoiner;
 @Entity
 public class Subscription extends TravelDocument {
+    @Enumerated(EnumType.STRING)
+    @Column(name = "subscription_type", nullable = false)
+
     private SubscriptionType subscriptionType;
 
     public Subscription(SubscriptionType subscriptionType) {

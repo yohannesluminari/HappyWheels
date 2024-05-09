@@ -6,3 +6,4 @@ public interface VehicleDao {
     void save(Vehicle vehicle);
     Vehicle getVehicleById(Long id);
 }
+
