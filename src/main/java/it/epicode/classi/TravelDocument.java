@@ -15,6 +15,9 @@ public abstract class TravelDocument extends BaseEntity {
     LocalDate startDate;
     @Column(name = "end_date")
     LocalDate endDate;
+    @Column(name = "seller")
+    private String seller;
+
 
     public TravelDocument() {
         this.startDate = LocalDate.now();
