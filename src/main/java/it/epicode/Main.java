@@ -1,15 +1,14 @@
 package it.epicode;
 
 import it.epicode.Enum.SubscriptionType;
-import it.epicode.classi.Subscription;
-import it.epicode.classi.User;
-import it.epicode.dao.interfaces.TravelDocumentDao;
+import it.epicode.classi.*;
 import it.epicode.dao.jpa.JpaTravelDocumentDao;
 import it.epicode.dao.jpa.JpaUserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Main {
 
@@ -20,6 +19,14 @@ public class Main {
         userDao.save(Antonio);
         Subscription abb1 = new Subscription( SubscriptionType.MONTHLY);
         var travelDAo = new JpaTravelDocumentDao();
+        Subscription abb2 = new Subscription( SubscriptionType.WEEKLY);
         travelDAo.save(abb1);
+        travelDAo.save(abb2);
+
+
+        var tram1 = new Tram("3l3fred","termini","tiburtina",LocalTime.parse("00:30") ,3);
+        log.debug("{}",tram1);
+        var bus = new Bus("3l4fred","termini","tiburtina",LocalTime.parse("00:30") ,5);
+        log.debug("{}",bus);
     }
 }
