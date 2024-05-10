@@ -24,8 +24,13 @@ public class JpaSellerDao extends BaseDao implements SellerDao {
         }
     }
 
-    public int countTotalDailyTickets(Seller seller, LocalDate startDate, LocalDate endDate) {
+    public int countTotalDailyTickets(Long sellerId, LocalDate startDate, LocalDate endDate) {
         try {
+            Seller seller = em.find(Seller.class, sellerId);
+            if (seller == null) {
+                // Se il venditore non esiste, ritorna 0
+                return 0;
+            }
             TypedQuery<Long> query = em.createNamedQuery("DailyTicket.countBySellerAndDateRange", Long.class)
                     .setParameter("seller", seller)
                     .setParameter("startDate", startDate)
@@ -36,8 +41,13 @@ public class JpaSellerDao extends BaseDao implements SellerDao {
         }
     }
 
-    public int countTotalSubscriptions(Seller seller, LocalDate startDate, LocalDate endDate) {
+    public int countTotalSubscriptions(Long sellerId, LocalDate startDate, LocalDate endDate) {
         try {
+            Seller seller = em.find(Seller.class, sellerId);
+            if (seller == null) {
+                // Se il venditore non esiste, ritorna 0
+                return 0;
+            }
             TypedQuery<Long> query = em.createNamedQuery("Subscription.countBySellerAndDateRange", Long.class)
                     .setParameter("seller", seller)
                     .setParameter("startDate", startDate)

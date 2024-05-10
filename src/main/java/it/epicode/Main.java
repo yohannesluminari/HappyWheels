@@ -53,9 +53,21 @@ public class Main {
         LocalDate startDate = LocalDate.of(2024, 1, 1);
         LocalDate endDate = LocalDate.of(2024, 12, 31);
 
-// Chiamare i metodi del DAO per ottenere i conteggi
-        int totalDailyTickets = sellerDao.countTotalDailyTickets(reSeller, startDate, endDate);
-        int totalSubscriptions = sellerDao.countTotalSubscriptions(reSeller, startDate, endDate);
+getTicketsAndSubscriptionsCountForSeller(1L, startDate, endDate);
+
+
     }
 
+    public static void getTicketsAndSubscriptionsCountForSeller(Long sellerId, LocalDate startDate, LocalDate endDate) {
+        JpaSellerDao sellerDao = new JpaSellerDao();
+
+        int dailyTicketsCount = sellerDao.countTotalDailyTickets(sellerId, startDate, endDate);
+        System.out.println("Numero di biglietti per il venditore con ID " + sellerId + " nel periodo da "
+                + startDate + " a " + endDate + ": " + dailyTicketsCount);
+
+
+        int subscriptionsCount = sellerDao.countTotalSubscriptions(sellerId, startDate, endDate);
+        System.out.println("Numero di abbonamenti per il venditore con ID " + sellerId + " nel periodo da "
+                + startDate + " a " + endDate + ": " + subscriptionsCount);
+    }
 }
