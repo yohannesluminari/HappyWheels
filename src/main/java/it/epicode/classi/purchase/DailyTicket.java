@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("T")
 public class DailyTicket extends TravelDocument {
+
     @Column(nullable = false)
     private boolean validated;
 
