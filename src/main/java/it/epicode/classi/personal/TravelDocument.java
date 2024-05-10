@@ -8,20 +8,28 @@ import java.time.LocalDate;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn(name = "ticket_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class TravelDocument extends BaseEntity {
     @Column(name = "code", length = 50)
     double code;
-    @Column(name = "start_date")
-    LocalDate startDate;
-    @Column(name = "end_date")
-    LocalDate endDate;
     @Column(name = "seller")
     private String seller;
 
-
-    public TravelDocument() {
-        this.startDate = LocalDate.now();
+    public TravelDocument(String issuingPoint) {
         this.code = (int)(Math.random()*1000);
+        this.seller = issuingPoint;
+    }
+    public TravelDocument(){
+
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
     }
 
     public double getCode() {
@@ -32,19 +40,5 @@ public abstract class TravelDocument extends BaseEntity {
         this.code = code;
     }
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
 }

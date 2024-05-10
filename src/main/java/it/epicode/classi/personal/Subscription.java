@@ -1,20 +1,26 @@
 package it.epicode.classi.personal;
 
 import it.epicode.Enum.SubscriptionType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import it.epicode.classi.purchase.Seller;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.StringJoiner;
 @Entity
+@DiscriminatorValue("S")
 public class Subscription extends TravelDocument {
     @Enumerated(EnumType.STRING)
     @Column(name = "subscription_type", nullable = false)
-
     private SubscriptionType subscriptionType;
+    @Column(name = "start_date", nullable = false)
+    private LocalDate startDate;
+    @Column(name = "end_date", nullable = false)
+    private LocalDate endDate;
 
-    public Subscription(SubscriptionType subscriptionType) {
+
+    public Subscription(Seller seller, SubscriptionType subscriptionType) {
+        super(seller.getLocation());
+        this.startDate = LocalDate.now();
         this.subscriptionType = subscriptionType;
         if(this.subscriptionType == SubscriptionType.WEEKLY){
             setEndDate(getStartDate().plusWeeks(1));
@@ -22,6 +28,10 @@ public class Subscription extends TravelDocument {
             setEndDate(getStartDate().plusMonths(1));
         }
     }
+    public Subscription(){
+
+    }
+
 
     public SubscriptionType getSubscriptionType() {
         return subscriptionType;
@@ -29,6 +39,22 @@ public class Subscription extends TravelDocument {
 
     public void setSubscriptionType(SubscriptionType subscriptionType) {
         this.subscriptionType = subscriptionType;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     @Override

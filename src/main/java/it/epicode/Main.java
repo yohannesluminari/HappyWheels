@@ -3,13 +3,14 @@ package it.epicode;
 import it.epicode.Enum.SubscriptionType;
 import it.epicode.classi.personal.Subscription;
 import it.epicode.classi.personal.User;
+import it.epicode.classi.purchase.DailyTicket;
+import it.epicode.classi.purchase.ReSeller;
+import it.epicode.classi.purchase.Seller;
+import it.epicode.classi.purchase.VendingMachine;
 import it.epicode.classi.transport.Bus;
 import it.epicode.classi.transport.Maintenance;
 import it.epicode.classi.transport.Tram;
-import it.epicode.dao.jpa.JpaMaintenanceDao;
-import it.epicode.dao.jpa.JpaTravelDocumentDao;
-import it.epicode.dao.jpa.JpaUserDao;
-import it.epicode.dao.jpa.JpaVehicleDao;
+import it.epicode.dao.jpa.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,11 +24,18 @@ public class Main {
         User Antonio = new User("Antonio","Schipani", LocalDate.of(1998,3,7));
         var userDao = new JpaUserDao();
         userDao.save(Antonio);
-        Subscription abb1 = new Subscription( SubscriptionType.MONTHLY);
+        var reSeller = new ReSeller("Roma","barJolly");
+        var vendita = new VendingMachine("Roma");
+        var ticket = new DailyTicket(reSeller);
+        var sellerDao = new JpaSellerDao();
+        sellerDao.save(reSeller);
+        sellerDao.save(vendita);
+        Subscription abb1 = new Subscription(vendita ,SubscriptionType.MONTHLY);
         var travelDAo = new JpaTravelDocumentDao();
-        Subscription abb2 = new Subscription( SubscriptionType.WEEKLY);
+        Subscription abb2 = new Subscription(reSeller, SubscriptionType.WEEKLY);
         travelDAo.save(abb1);
         travelDAo.save(abb2);
+        travelDAo.save(ticket);
         var vehicleDao = new JpaVehicleDao();
 
 
@@ -40,5 +48,6 @@ public class Main {
         var maintenence1 = new Maintenance(vehicleDao.getVehicleById(1L),LocalDate.now());
         var maintenanceDao = new JpaMaintenanceDao();
         maintenanceDao.save(maintenence1);
+
     }
 }
