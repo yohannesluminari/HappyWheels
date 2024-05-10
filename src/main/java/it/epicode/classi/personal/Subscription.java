@@ -8,6 +8,10 @@ import java.time.LocalDate;
 import java.util.StringJoiner;
 @Entity
 @DiscriminatorValue("S")
+@NamedQuery(name = "Subscription.countBySellerAndDateRange",
+        query = "SELECT COUNT(sub) FROM Subscription sub " +
+                "WHERE sub.seller = :seller " +
+                "AND sub.startDate BETWEEN :startDate AND :endDate")
 public class Subscription extends TravelDocument {
     @Enumerated(EnumType.STRING)
     @Column(name = "subscription_type", nullable = false)

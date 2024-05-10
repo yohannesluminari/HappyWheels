@@ -5,6 +5,7 @@ import it.epicode.classi.personal.Subscription;
 import it.epicode.classi.personal.User;
 import it.epicode.classi.purchase.DailyTicket;
 import it.epicode.classi.purchase.ReSeller;
+import it.epicode.classi.purchase.Seller;
 import it.epicode.classi.purchase.VendingMachine;
 import it.epicode.classi.transport.Bus;
 import it.epicode.classi.transport.Maintenance;
@@ -17,24 +18,25 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Main {
+    private static final JpaSellerDao sellerDao = new JpaSellerDao();
 
     protected static final Logger log = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args){
         User Antonio = new User("Antonio","Schipani", LocalDate.of(1998,3,7));
         var userDao = new JpaUserDao();
-        userDao.save(Antonio);
+     /*   userDao.save(Antonio);*/
         var reSeller = new ReSeller("Roma","barJolly");
         var vendita = new VendingMachine("Roma");
         var ticket = new DailyTicket(reSeller);
         var sellerDao = new JpaSellerDao();
-        sellerDao.save(reSeller);
-        sellerDao.save(vendita);
+       /* sellerDao.save(reSeller);
+        sellerDao.save(vendita);*/
         Subscription abb1 = new Subscription(vendita ,SubscriptionType.MONTHLY);
         var travelDAo = new JpaTravelDocumentDao();
         Subscription abb2 = new Subscription(reSeller, SubscriptionType.WEEKLY);
-        travelDAo.save(abb1);
+        /*travelDAo.save(abb1);
         travelDAo.save(abb2);
-        travelDAo.save(ticket);
+        travelDAo.save(ticket);*/
         var vehicleDao = new JpaVehicleDao();
 
 
@@ -42,10 +44,18 @@ public class Main {
         log.debug("{}",tram1);
         var bus = new Bus("3l4fred","Termini","Tiburtina",LocalTime.parse("00:30") ,5);
         log.debug("{}",bus);
-        vehicleDao.save(tram1);
-        vehicleDao.save(bus);
+       /* vehicleDao.save(tram1);
+        vehicleDao.save(bus);*/
         var maintenence1 = new Maintenance(vehicleDao.getVehicleById(1L),LocalDate.now());
         var maintenanceDao = new JpaMaintenanceDao();
-        maintenanceDao.save(maintenence1);
+        /*maintenanceDao.save(maintenence1);*/
+
+        LocalDate startDate = LocalDate.of(2024, 1, 1);
+        LocalDate endDate = LocalDate.of(2024, 12, 31);
+
+// Chiamare i metodi del DAO per ottenere i conteggi
+        int totalDailyTickets = sellerDao.countTotalDailyTickets(reSeller, startDate, endDate);
+        int totalSubscriptions = sellerDao.countTotalSubscriptions(reSeller, startDate, endDate);
     }
+
 }
