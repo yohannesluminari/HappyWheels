@@ -30,12 +30,13 @@ public class Main {
         var sellerDao = new JpaSellerDao();
         sellerDao.save(reSeller);
         sellerDao.save(vendita);
+        log.debug("{}", reSeller);
         Subscription abb1 = new Subscription(vendita ,SubscriptionType.MONTHLY);
         var travelDAo = new JpaTravelDocumentDao();
         Subscription abb2 = new Subscription(reSeller, SubscriptionType.WEEKLY);
-        travelDAo.save(abb1);
-        travelDAo.save(abb2);
-        travelDAo.save(ticket);
+        //travelDAo.save(abb1);
+        //travelDAo.save(abb2);
+        //travelDAo.save(ticket);
         var vehicleDao = new JpaVehicleDao();
 
 

@@ -19,7 +19,7 @@ public class Subscription extends TravelDocument {
 
 
     public Subscription(Seller seller, SubscriptionType subscriptionType) {
-        super(seller.getLocation());
+        super(seller);
         this.startDate = LocalDate.now();
         this.subscriptionType = subscriptionType;
         if(this.subscriptionType == SubscriptionType.WEEKLY){

@@ -18,7 +18,7 @@ public class DailyTicket extends TravelDocument {
 
 
     public DailyTicket(Seller seller) {
-        super(seller.getLocation());
+        super(seller);
         this.validated = false;
     }
 

@@ -12,17 +12,17 @@ import java.time.LocalDate;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorColumn(name = "ticket_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class TravelDocument extends BaseEntity {
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "seller_id")
     private Seller seller;
     @Column(name = "code", length = 50)
     double code;
-    @Column(name = "seller")
-    private String sellerLocation;
 
-    public TravelDocument(String issuingPoint) {
+    public TravelDocument(Seller seller ) {
         this.code = (int)(Math.random()*1000);
-        this.sellerLocation = issuingPoint;
+        this.seller = seller;
+
     }
     public TravelDocument(){
 
@@ -36,13 +36,6 @@ public abstract class TravelDocument extends BaseEntity {
         this.seller = seller;
     }
 
-    public String getSellerLocation() {
-        return sellerLocation;
-    }
-
-    public void setSellerLocation(String seller) {
-        this.sellerLocation = seller;
-    }
 
     public double getCode() {
         return code;
